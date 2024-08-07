@@ -1,0 +1,27 @@
+---
+import Layout from "@layouts/Layout.astro";
+import data from '../../data/gallery-data.json';
+// export async function getStaticPaths() {
+//   const data = await (await fetch("http://localhost:4321/data/gallery-data.json")).json();
+//   return data.map((item) => ({
+//     params: { id: item.id.toString() },
+//   }));
+// }
+// export function getStaticPaths() {
+//   return [
+//     {params: {id: 'thumb1'}},
+//     {params: {id: 'thumb2'}},
+//     {params: {id: 'thumb3'}},
+//   ];
+// }
+export function getStaticPaths() {
+return data.map((item) => ({
+     params: { id: item.id.toString() },
+}));
+}
+const { id } = Astro.params;
+---
+
+<Layout title="Gallery">
+<h1>{id}</h1>
+</Layout>

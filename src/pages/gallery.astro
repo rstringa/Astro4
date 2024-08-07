@@ -1,0 +1,46 @@
+---
+import Layout from "@layouts/Layout.astro";
+import Container from "@components/container.astro";
+import Hero from "@components/hero.astro";
+import data from '../data/gallery-data.json';
+
+---
+
+
+<Layout title="Pricing">
+  <Container>
+    <Hero />
+    <div class="main-gllery">
+      <ul class="gallery">
+        {data.map((item) => 
+            <li><a href={`/gallery/${item.id}`}><img src={item.imageURL} alt={item.artist} /></a></li>
+        )}
+      </ul>
+      <!-- <aside class="lightbox">
+        <figure class="lightbox-image">
+
+        </figure>
+      </aside> -->
+    </div>
+  </Container>
+</Layout>
+
+<style>
+
+  .main-gallery {
+    position: relative;
+    display: grid;
+    place-content: center;
+  }
+
+  .gallery {
+    /* max-width: 800px; */
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+
+ 
+  
+</style>
+

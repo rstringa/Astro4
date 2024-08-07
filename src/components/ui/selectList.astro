@@ -1,0 +1,21 @@
+---
+// const response = await fetch('http://localhost:4321/data/playlist.json');
+// const data = await response.json();
+import data from '../../data/playlist.json';
+---
+<script>
+    import { playlist } from 'store.js';
+    const select = document.getElementById("select") as HTMLSelectElement;
+    select?.addEventListener("change", setPlaylist);
+
+    function setPlaylist() {
+        playlist.set(select.value);
+    }
+
+
+</script>
+
+<label for="select">Select a playlist:</label>
+<select name="select" id="select" class="mb-5 border-gray-300 border-solid border border-1">
+  {data.map((item) => <option value={item.slug}>{item.title}</option>) }
+</select>

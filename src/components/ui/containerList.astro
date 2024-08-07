@@ -1,0 +1,72 @@
+---
+import {BASE_URL} from "../../../astro.config.mjs";
+---
+
+<style>
+  .playlist-box {
+    transition: opacity 0.5s ease-in-out;
+    /* &.visible {
+        opacity: 1;
+    } */
+    li {
+      --delay: 0.25s;
+      animation: fade-in 0.75s linear var(--delay);
+      margin-bottom: 10px;
+    }
+  }
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0px);
+    }
+  }
+</style>
+
+<script>
+  import { playlist } from "store.js";
+  //   import { updateList } from 'utils/all.js';
+
+  // Carga inicial
+  const server = document.querySelector('.playlist-box')?.getAttribute('data-server');
+  console.log(server);
+  const url = `${server}/data/musicdev.json`;
+  let dataInitial = fetch(url)
+    .then((response) => response.json())
+    .then((data) => {
+      updateList(data);
+    });
+
+  // Carga dinámica
+  playlist.subscribe(async (list) => {
+    try {
+      const response = await fetch(`${server}/data/${list}.json`);
+      const data = await response.json();
+      updateList(data);
+    } catch (error) {
+      console.error(error);
+    }
+  });
+  function updateList(data) {
+    let playListBox = document.querySelector(".playlist-box");
+    if (playListBox) {
+      playListBox.innerHTML = data
+        .map(
+          (item, index) =>
+            `<li
+        style="--delay:${index * 0.075}s" 
+        class="p-2 border border-solid border-1 border-gray-300 rounded-lg">${item.title}
+        </li>`
+        )
+        .join("");
+
+      // playListBox.classList.add("visible");
+    }
+  }
+</script>
+
+<div class="playlist-box" data-server={BASE_URL}></div>
