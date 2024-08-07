@@ -23,6 +23,5 @@ if(isBuild){
 export default defineConfig({
   server : {port:SERVER_PORT },
   site: SITE_URL,
-  base: BASE_URL,
   integrations: [tailwind(), mdx(), sitemap(), icon()],
 });
