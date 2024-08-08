@@ -41,8 +41,8 @@ const features = [
   },
 ];
 ---
-
-<div class="mt-16 md:mt-0" data-aos="fade-right">
+<div id="parent">
+<div class="mt-16 md:mt-0" data-aos="fade-right" data-aos-anchor="#parent">
   <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">
     Everything you need to start a website
   </h2>
@@ -52,7 +52,7 @@ const features = [
   </p>
 </div>
 
-<div class="grid sm:grid-cols-2 md:grid-cols-3 mt-16 gap-16" data-aos="fade-left">
+<div class="grid sm:grid-cols-2 md:grid-cols-3 mt-16 gap-16" data-aos="fade-left" data-aos-anchor="#parent">
   {
     features.map((item) => (
       <div class="flex gap-4 items-start">
@@ -66,4 +66,5 @@ const features = [
       </div>
     ))
   }
+</div>
 </div>
