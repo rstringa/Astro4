@@ -1,5 +1,5 @@
 ---
-import {SITE_URL} from "../../../astro.config.mjs";
+
 ---
 
 <style>
@@ -32,9 +32,8 @@ import {SITE_URL} from "../../../astro.config.mjs";
   //   import { updateList } from 'utils/all.js';
 
   // Carga inicial
-  const server = document.querySelector('.playlist-box')?.getAttribute('data-server');
-  console.log(server);
-  const url = `${server}/data/musicdev.json`;
+
+  const url = `/data/musicdev.json`;
   let dataInitial = fetch(url)
     .then((response) => response.json())
     .then((data) => {
@@ -44,7 +43,7 @@ import {SITE_URL} from "../../../astro.config.mjs";
   // Carga dinámica
   playlist.subscribe(async (list) => {
     try {
-      const response = await fetch(`${server}/data/${list}.json`);
+      const response = await fetch(`/data/${list}.json`);
       const data = await response.json();
       updateList(data);
     } catch (error) {
@@ -69,4 +68,4 @@ import {SITE_URL} from "../../../astro.config.mjs";
   }
 </script>
 
-<div class="playlist-box" data-server={SITE_URL}></div>
+<div class="playlist-box" ></div>

@@ -16,12 +16,12 @@ export let BASE_URL = ""
 
 if(isBuild){
   SITE_URL = LIVE_URL;
-  BASE_URL = '/Astro4';
+  BASE_URL = '';
 }
 
 // https://astro.build/config
 export default defineConfig({
-  server : {port:SERVER_PORT },
+  // server : {port:SERVER_PORT },
   site: SITE_URL,
   integrations: [tailwind(), mdx(), sitemap(), icon()],
 });
