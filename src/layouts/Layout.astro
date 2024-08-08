@@ -4,7 +4,7 @@ import Footer from "@components/footer.astro";
 import Navbar from "@components/navbar/navbar.astro";
 import "@fontsource-variable/inter/index.css";
 import '@fontsource-variable/bricolage-grotesque';
-// import 'aos/dist/aos.css'; 
+import 'aos/dist/aos.css'; 
 export interface Props {
   title: string;
 }
@@ -73,10 +73,11 @@ const makeTitle = title
       } */
     </style>
     <script> 
-      // import AOS from "aos"; 
-      // AOS.init({
-      //   once:false
-      // });
+      import AOS from "aos"; 
+      AOS.init(
+        { duration: 800, easing: "ease-out-cubic", once: true, offset: 50 }
+      );
+    
     </script>
   </body>
 </html>
