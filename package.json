@@ -30,6 +30,5 @@
   },
   "devDependencies": {
     "@types/dom-view-transitions": "^1.0.5"
-  },
-  "packageManager": "pnpm@8.10.5" 
+  }
 }
