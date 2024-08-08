@@ -16,7 +16,7 @@ export let BASE_URL = ""
 
 if(isBuild){
   SITE_URL = LIVE_URL;
-  BASE_URL = '/Astro4.github.io';
+  BASE_URL = '/Astro4';
 }
 
 // https://astro.build/config
