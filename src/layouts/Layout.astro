@@ -72,7 +72,8 @@ const makeTitle = title
     </style>
     <script> 
       import AOS from "aos"; 
-      AOS.init(); 
+      AOS.init();
+      window.addEventListener('load', AOS.refresh); 
     </script>
   </body>
 </html>
