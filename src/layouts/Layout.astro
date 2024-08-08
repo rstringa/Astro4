@@ -73,11 +73,12 @@ const makeTitle = title
       } */
     </style>
     <script> 
-      import AOS from "aos"; 
+      import AOS from "aos";
+      document.addEventListener('DOMContentLoaded', () => { 
       AOS.init(
         { duration: 800, easing: "ease-out-cubic", once: false, offset: 50 }
       );
-    
+      });
     </script>
   </body>
 </html>
