@@ -79,7 +79,11 @@ const makeTitle = title
         { duration: 800, easing: "ease-out-cubic", once: false }
       );
       
-      window.addEventListener('load', AOS.refresh);
+     window.addEventListener('load', () => {
+       setTimeout(() => {
+         AOS.refresh();
+       }, 1000);
+     });
     </script>
   </body>
 </html>
