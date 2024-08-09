@@ -62,6 +62,7 @@ const makeTitle = title
   <body>
     <!-- <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js" onload="AOS.init()"></script> -->
+    
     <Navbar />
     <slot />
     <Footer />
@@ -72,6 +73,8 @@ const makeTitle = title
       /* img {
         content-visibility: auto;
       } */
+    html { scroll-behavior: smooth; }
+      
     </style>
     <script> 
       import AOS from "aos";

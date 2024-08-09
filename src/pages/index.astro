@@ -10,8 +10,23 @@ import Contact from "./contact.astro";
 import ContainerList from "@components/ui/containerList.astro";
 
 ---
-
+<style is:inline>
+  .overlay {
+    position: fixed;
+    inset:0;
+    background-color: rgba(255, 255, 255, 1);
+    z-index: 500;
+    pointer-events: none;
+    opacity: 1;
+    transition: all 1s ease-in-out;
+  }
+  .overlay.hidded {
+    opacity: 0;
+    background-color: rgba(255, 255, 255, 0);
+  }
+</style>
 <Layout title="">
+  <div class="overlay"></div>
   <Container>
     <Hero title="Marketing website done with Astro"/>
     <div class="my-10 mb-24" >
@@ -22,4 +37,17 @@ import ContainerList from "@components/ui/containerList.astro";
     <Logos />
     <Cta />
   </Container>
+
 </Layout>
+<script>
+  const anchors = document.querySelectorAll('a[href$="#"]');
+  anchors.forEach((anchor) => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+  
+    });
+  });
+  const overlay = document.querySelector('.overlay');
+  overlay?.classList.add('hidded');
+
+</script>

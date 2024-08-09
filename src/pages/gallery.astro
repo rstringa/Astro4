@@ -2,45 +2,53 @@
 import Layout from "@layouts/Layout.astro";
 import Container from "@components/container.astro";
 import Hero from "@components/hero.astro";
-import data from '../data/gallery-data.json';
-
+import data from "../data/gallery-data.json";
 ---
-
 
 <Layout title="Pricing">
   <Container>
-    <Hero title="Gallery website done well with Astro"/>
-    <div class="main-gllery">
-      <ul class="gallery">
-        {data.map((item) => 
-            <li><a href={`/gallery/${item.id}`}><img src={item.imageURL} alt={item.artist} /></a></li>
-        )}
+    <Hero title="Gallery website done well with Astro" />
+    <div class="main-gallery">
+      <ul class="gallery" id="gallery">
+        {
+          data.map((item) => (
+            <li id={`${item.id}`}>
+              <a href={`/gallery/${item.id}`}>
+                <img
+                  transition:name={`gallery-image-${item.id}`}
+                  src={item.imageURL}
+                  alt={item.artist}
+                />
+                <figcaption transition:name={`gallery-caption-${item.id}`}>
+                  {item.artist}
+                </figcaption>
+              </a>
+            </li>
+          ))
+        }
       </ul>
-      <!-- <aside class="lightbox">
-        <figure class="lightbox-image">
-
-        </figure>
-      </aside> -->
     </div>
   </Container>
 </Layout>
+<script>
+ 
 
+</script>
 <style>
-
   .main-gallery {
     position: relative;
     display: grid;
     place-content: center;
+    .gallery {
+      /* max-width: 800px; */
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      img {
+        width: 100%;
+        aspect-ratio: 1 / 1;
+        object-fit: cover;
+      }
+    }
   }
-
-  .gallery {
-    /* max-width: 800px; */
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1rem;
-  }
-
- 
-  
 </style>
-

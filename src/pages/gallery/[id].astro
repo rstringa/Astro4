@@ -1,27 +1,90 @@
 ---
 import Layout from "@layouts/Layout.astro";
-import data from '../../data/gallery-data.json';
-// export async function getStaticPaths() {
-//   const data = await (await fetch("http://localhost:4321/data/gallery-data.json")).json();
-//   return data.map((item) => ({
-//     params: { id: item.id.toString() },
-//   }));
-// }
-// export function getStaticPaths() {
-//   return [
-//     {params: {id: 'thumb1'}},
-//     {params: {id: 'thumb2'}},
-//     {params: {id: 'thumb3'}},
-//   ];
-// }
+import data from "../../data/gallery-data.json";
+import { Icon } from "astro-icon/components";
+import { fade } from 'astro:transitions';
+
+
 export function getStaticPaths() {
-return data.map((item) => ({
-     params: { id: item.id.toString() },
-}));
+  return data.map((item) => ({
+    params: { id: item.id.toString() },
+  }));
 }
 const { id } = Astro.params;
 ---
 
-<Layout title="Gallery">
-<h1>{id}</h1>
-</Layout>
+{
+  data.map((item) => {
+    if (item.id === id) {
+      return (
+        <Layout title="Gallery">
+          <div class="overlay">
+               
+            <div class="main-gallery">
+             
+              <a href={`/gallery#${item.id}`} data-astro-reload>
+               <Icon name="uil:multiply" class="close" />
+                <img
+                  transition:name={`gallery-image-${item.id}`}
+                  src={item.imageURL}
+                  alt={item.artist}
+                />
+                <figcaption
+                 transition:name={`gallery-caption-${item.id}`}
+                 transition:animate= {fade({duration: 500})}  
+                >{item.artist}</figcaption>
+              </a>
+              
+            </div>
+          </div>
+        </Layout>
+      );
+    }
+  })
+}
+
+<style>
+  .overlay {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(22, 22, 22, 0.85);
+    & .close {
+     --size:40px;
+      position: absolute;
+      top:0px;
+      right: -60px;
+      cursor: pointer;
+      width: var(--size);
+      height: var(--size);
+      z-index: 5;
+      color:#ffffff98
+    }
+  }
+  .main-gallery {
+    position: relative;
+    display: grid;
+    place-content: center;
+
+    margin: 0 auto;
+    padding: 10vh 0;
+    max-height: 100vh;
+    & a {
+     position: relative;
+     max-height: 80vh;
+    }
+     & figcaption {
+       background: #fff;
+       padding: 0.8rem;
+       width: fit-content;
+       height: fit-content;
+       font-size: 21px;
+       position: absolute;
+       bottom: 0;
+       right: 0;   
+     }
+    & img {
+     height: 100%;
+     display: block;
+    }
+  }
+</style>
