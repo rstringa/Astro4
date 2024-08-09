@@ -38,8 +38,8 @@ const { title } = Astro.props;
     </p>
     <div class="mt-6 flex flex-col sm:flex-row gap-3">
       <Link
+        id="btn-1"
         href="#"
-        href="https://astro.build/"
         target="_blank"
         class="flex gap-1 items-center justify-center"
         rel="noopener">
@@ -62,3 +62,14 @@ const { title } = Astro.props;
     </div>
   </div>
 </main>
+<script>
+  function init() {
+   const btn = document.getElementById("btn-1");
+   btn?.addEventListener("click", (e) => {
+     e.preventDefault();
+     btn?.classList.toggle("animate-pulse");
+   })
+ }
+ document.addEventListener('astro:after-swap', init);
+ init();
+</script>

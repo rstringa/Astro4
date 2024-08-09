@@ -1,4 +1,5 @@
 ---
+import data from "../../data/musicdev.json";
 ---
 
 <style>
@@ -29,43 +30,47 @@
 <script>
   import { playlist } from "store.js";
   //   import { updateList } from 'utils/all.js';
+  function containerInit() {
+    // Carga inicial
 
-  // Carga inicial
-
-  const url = `/data/musicdev.json`;
-  let dataInitial = fetch(url)
-    .then((response) => response.json())
-    .then((data) => {
-      updateList(data);
+    const url = `/data/musicdev.json`;
+    let dataInitial = fetch(url)
+      .then((response) => response.json())
+      .then((data) => {
+        updateList(data);
+      });
+    // Carga dinámica
+    playlist.subscribe(async (list) => {
+      try {
+        const response = await fetch(`/data/${list}.json`);
+        const data = await response.json();
+        updateList(data);
+      } catch (error) {
+        console.error(error);
+      }
     });
 
-  // Carga dinámica
-  playlist.subscribe(async (list) => {
-    try {
-      const response = await fetch(`/data/${list}.json`);
-      const data = await response.json();
-      updateList(data);
-    } catch (error) {
-      console.error(error);
-    }
-  });
-  function updateList(data) {
-    let playListBox = document.querySelector(".playlist-box");
-    if (playListBox) {
-      playListBox.innerHTML = data
-        .map(
-          (item, index) =>
-            `<li
+    function updateList(data) {
+      let playListBox = document.querySelector(".playlist-box");
+      if (playListBox) {
+        playListBox.innerHTML = data
+          .map(
+            (item, index) =>
+              `<li
         style="--delay:${index * 0.075}s" 
         class="p-2 border border-solid border-1 border-gray-300 rounded-lg">${item.title}
         </li>`
-        )
-        .join("");
+          )
+          .join("");
 
-      // playListBox.classList.add("visible");
+        // playListBox.classList.add("visible");
+      }
     }
   }
-
+  document.addEventListener("astro:after-swap", containerInit);
+  containerInit();
 </script>
 
-<div class="playlist-box"></div>
+<div class="playlist-box">
+  {data.map((item) => <li>{item.title}</li>)}
+</div>

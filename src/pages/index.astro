@@ -8,14 +8,14 @@ import Layout from "@layouts/Layout.astro";
 import SelectList from "@components/ui/selectList.astro";
 import Contact from "./contact.astro";
 import ContainerList from "@components/ui/containerList.astro";
-
 ---
+
 <style is:inline>
   .overlay {
     position: fixed;
-    inset:0;
+    inset: 0;
     background-color: rgba(255, 255, 255, 1);
-    z-index: 500;
+    z-index: 50000;
     pointer-events: none;
     opacity: 1;
     transition: all 1s ease-in-out;
@@ -28,8 +28,8 @@ import ContainerList from "@components/ui/containerList.astro";
 <Layout title="">
   <div class="overlay"></div>
   <Container>
-    <Hero title="Marketing website done with Astro"/>
-    <div class="my-10 mb-24" >
+    <Hero title="Marketing website done with Astro" />
+    <div class="my-10 mb-24">
       <SelectList />
       <ContainerList />
     </div>
@@ -37,17 +37,19 @@ import ContainerList from "@components/ui/containerList.astro";
     <Logos />
     <Cta />
   </Container>
-
 </Layout>
 <script>
-  const anchors = document.querySelectorAll('a[href$="#"]');
-  anchors.forEach((anchor) => {
-    anchor.addEventListener('click', function (e) {
-      e.preventDefault();
-  
-    });
-  });
-  const overlay = document.querySelector('.overlay');
-  overlay?.classList.add('hidded');
+  function indexInit() {
+    // const anchors = document.querySelectorAll('a[href$="#"]');
+    // anchors.forEach((anchor) => {
+    //   anchor.addEventListener("click", function (e) {
+    //     e.preventDefault();
+    //   });
+    // });
+    const overlay = document.querySelector(".overlay");
+    overlay?.classList.add("hidded");
+  }
 
+  document.addEventListener("astro:after-swap", indexInit);
+  indexInit();
 </script>
