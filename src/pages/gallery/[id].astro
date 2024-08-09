@@ -2,7 +2,7 @@
 import Layout from "@layouts/Layout.astro";
 import data from "../../data/gallery-data.json";
 import { Icon } from "astro-icon/components";
-import { fade } from 'astro:transitions';
+import { slide } from 'astro:transitions';
 
 
 export function getStaticPaths() {
@@ -31,7 +31,7 @@ const { id } = Astro.params;
                 />
                 <figcaption
                  transition:name={`gallery-caption-${item.id}`}
-                 transition:animate= {fade({duration: 500})}  
+                 transition:animate= {slide({duration: 1500})}  
                 >{item.artist}</figcaption>
               </a>
               
