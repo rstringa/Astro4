@@ -28,7 +28,7 @@ export default defineConfig({
   //   format: "file",
   // },
   // outDir: '.'+ BASE_URL,
-  // base: BASE_URL,
+  base: BASE_URL,
   build: {
     rollupOptions: {
       external: ['fsevents']
