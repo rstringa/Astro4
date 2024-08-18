@@ -31,9 +31,5 @@ export default defineConfig({
   base: BASE_URL,
   site: SITE_URL,
   integrations: [tailwind(), mdx(), sitemap(), icon()],
-  build: {
-    rollupOptions: {
-      external: ['fsevents']
-    }
-  }
+ 
 });
