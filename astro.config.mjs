@@ -3,7 +3,7 @@ import tailwind from "@astrojs/tailwind";
 import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
 import icon from "astro-icon";
-
+import netlify from "@astrojs/netlify";
 // const SERVER_PORT = 4321;
 // const LOCALHOST_URL = `http://localhost:${SERVER_PORT}`;
 
@@ -12,12 +12,14 @@ import icon from "astro-icon";
 // const isBuild = SCRIPT.includes("astro build");
 
 // export let SITE_URL = LOCALHOST_URL;
- export let ROOT = '';
+
+export let ROOT = '';
 
 // if(isBuild){
 //   SITE_URL = LIVE_URL;
 //   // BASE_URL = '/dist';
 // }
+
 
 // https://astro.build/config
 export default defineConfig({
@@ -32,5 +34,6 @@ export default defineConfig({
 
   site: "https://github.com/rstringa/Astro4",
   integrations: [tailwind(), mdx(), sitemap(), icon()],
- 
+  output: "server",
+  adapter: netlify()
 });
