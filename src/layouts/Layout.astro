@@ -5,7 +5,7 @@ import Navbar from "@components/navbar/navbar.astro";
 import "@fontsource-variable/inter/index.css";
 import '@fontsource-variable/bricolage-grotesque';
 import {ViewTransitions} from 'astro:transitions';
-import {BASE_URL} from '../../astro.config.mjs'; 
+import {ROOT} from '../../astro.config.mjs'; 
 import 'aos/dist/aos.css'; 
 export interface Props {
   title: string;
@@ -60,7 +60,7 @@ const makeTitle = title
 
   </head>
 
-  <body data-base-url={BASE_URL}>
+  <body data-base-url={ROOT}>
     <!-- <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js" onload="AOS.init()"></script> -->
     

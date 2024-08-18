@@ -3,7 +3,7 @@ import Layout from "@layouts/Layout.astro";
 import Container from "@components/container.astro";
 import Hero from "@components/hero.astro";
 import data from "../data/gallery-data.json";
-import {BASE_URL} from '../../astro.config.mjs'
+import {ROOT} from '../../astro.config.mjs'
 
 ---
 
@@ -16,10 +16,10 @@ import {BASE_URL} from '../../astro.config.mjs'
           data.map( function(item) {
             return (
             <li id={`${item.id}`}>
-              <a href={`${BASE_URL}/gallery/${item.id}`}>
+              <a href={`${ROOT}/gallery/${item.id}`}>
                 <img
                   transition:name={`gallery-image-${item.id}`}
-                  src={`${BASE_URL}/gallery-images/${item.imageURL}`}
+                  src={`${ROOT}/gallery-images/${item.imageURL}`}
                   alt={item.artist}
                 />
                 <figcaption transition:name={`gallery-caption-${item.id}`}>

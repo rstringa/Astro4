@@ -3,37 +3,37 @@ import Container from "@components/container.astro";
 import Link from "@components/ui/link.astro";
 import Dropdown from "./dropdown.astro";
 import { Astronav, MenuItems, MenuIcon } from "astro-navbar";
-import {BASE_URL} from '../../../astro.config.mjs'
+import {ROOT} from '../../../astro.config.mjs'
 const menuitems = [
   {
     title: "Features",
     path: "#",
     children: [
-      { title: "Action", path: `${BASE_URL}/` },
+      { title: "Action", path: `${ROOT}/` },
       { title: "Another action", path: "#" },
       { title: "Dropdown Submenu", path: "#" },
-      { title: "404 Page", path: `${BASE_URL}/404` },
+      { title: "404 Page", path: `${ROOT}/404` },
     ],
   },
   {
     title: "Pricing",
-    path: `${BASE_URL}/pricing`,
+    path: `${ROOT}/pricing`,
   },
   {
     title: "Gallery",
-    path: `${BASE_URL}/gallery`,
+    path: `${ROOT}/gallery`,
   },
   {
     title: "About",
-    path: `${BASE_URL}/about`,
+    path: `${ROOT}/about`,
   },
   {
     title: "Blog",
-    path: `${BASE_URL}/blog`,
+    path: `${ROOT}/blog`,
   },
   {
     title: "Contact",
-    path: `${BASE_URL}/contact`,
+    path: `${ROOT}/contact`,
   },
   // {
   //   title: "Pro Version",
@@ -48,7 +48,7 @@ const menuitems = [
     <Astronav>
       <div class="flex w-full lg:w-auto items-center justify-between">
         <!--data-astro-reload -->
-        <a href=`${BASE_URL}/` class="text-lg" ><span class="font-bold text-slate-800">Astro</span><span
+        <a href=`${ROOT}/` class="text-lg" ><span class="font-bold text-slate-800">Astro</span><span
             class="text-slate-500">ship</span
           >
         </a>

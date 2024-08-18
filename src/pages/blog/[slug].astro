@@ -2,7 +2,7 @@
 import { getCollection } from "astro:content";
 import Layout from "@layouts/Layout.astro";
 import Container from "@components/container.astro";
-import {BASE_URL} from '../../../astro.config.mjs'
+import {ROOT} from '../../../astro.config.mjs'
 // Generate a new path for every collection entry
 export async function getStaticPaths() {
   const blogEntries = await getCollection("blog");
@@ -53,7 +53,7 @@ const { Content } = await entry.render();
     </div>
     <div class="text-center mt-8">
       <a
-        href=`${BASE_URL}/blog`
+        href=`${ROOT}/blog`
         class="bg-gray-100 px-5 py-3 rounded-md hover:bg-gray-200 transition"
         >← Back to Blog</a
       >

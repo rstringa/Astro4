@@ -3,7 +3,7 @@ import Layout from "@layouts/Layout.astro";
 import data from "../../data/gallery-data.json";
 import { Icon } from "astro-icon/components";
 import { slide } from 'astro:transitions';
-import {BASE_URL} from '../../../astro.config.mjs'
+import {ROOT} from '../../../astro.config.mjs'
 
 export function getStaticPaths() {
   return data.map((item) => ({
@@ -22,11 +22,11 @@ const { id } = Astro.params;
                
             <div class="main-gallery">
              
-              <a href={`${BASE_URL}/gallery#${item.id}`} data-astro-reload>
+              <a href={`${ROOT}/gallery#${item.id}`} data-astro-reload>
                <Icon name="uil:multiply" class="close" />
                 <img
                   transition:name={`gallery-image-${item.id}`}
-                  src={`${BASE_URL}/gallery-images/${item.imageURL}`}
+                  src={`${ROOT}/gallery-images/${item.imageURL}`}
                   alt={item.artist}
                 />
                 <figcaption
