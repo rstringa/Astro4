@@ -3,46 +3,46 @@
         "id":"thumb1", 
         "artist": "Matthew Jackson", 
         "artistURL": "https://unsplash.com/@levijackson?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash",
-        "imageURL": "../gallery-images/balconies-md.jpg"
+        "imageURL": "balconies-md.jpg"
     },
     {
         "id":"thumb2",
         "artist": "David Trinks", 
         "artistURL": "https://unsplash.com/@dtrinksrph?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash",
-         "imageURL": "../gallery-images/checkers-md.jpg"},
+         "imageURL": "checkers-md.jpg"},
     {
         "id":"thumb3",
         "artist": "Joakim Nådell", 
         "artistURL": "https://unsplash.com/@joakimnadell?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash",
-         "imageURL": "../gallery-images/curves-md.jpg"},
+         "imageURL": "curves-md.jpg"},
     {
         "id":"thumb4",
         "artist": "Xingchen Yan", 
         "artistURL": "https://unsplash.com/@xingchenyan?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash",
-         "imageURL": "../gallery-images/floors-md.jpg"},
+         "imageURL": "floors-md.jpg"},
     {
         "id":"thumb5",
         "artist": "Ricardo Gomez Angel", 
         "artistURL": "https://unsplash.com/@rgaleriacom?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash",
-         "imageURL": "../gallery-images/flow-md.jpg"},
+         "imageURL": "flow-md.jpg"},
     {
         "id":"thumb6",
         "artist": "Bady Abbas", 
         "artistURL": "https://unsplash.com/@bady?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash",
-         "imageURL": "../gallery-images/forms-md.jpg"},
+         "imageURL": "forms-md.jpg"},
     {
         "id":"thumb7",
         "artist": "William Warby", 
         "artistURL": "https://unsplash.com/@wwarby?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash",
-         "imageURL": "../gallery-images/squares-md.jpg"},
+         "imageURL": "squares-md.jpg"},
     {
         "id":"thumb8",
         "artist": "Alexander Psiuk", 
         "artistURL": "https://unsplash.com/@alexdeloy?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash",
-         "imageURL": "../gallery-images/swirls-md.jpg"},
+         "imageURL": "swirls-md.jpg"},
     {
         "id":"thumb9",
         "artist": "Ricardo Gomez Angel", 
         "artistURL": "https://unsplash.com/@rgaleriacom?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash",
-         "imageURL": "../gallery-images/zig-zag-md.jpg"}
+         "imageURL": "zig-zag-md.jpg"}
 ]

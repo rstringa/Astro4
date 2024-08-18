@@ -1,0 +1,1 @@
+import"./hoisted.Rvo9z6kc.js";function e(){const t=document.getElementById("btn-1");t?.addEventListener("click",n=>{n.preventDefault(),t?.classList.toggle("animate-pulse")})}document.addEventListener("astro:after-swap",e);e();

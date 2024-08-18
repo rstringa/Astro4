@@ -1,5 +1,5 @@
 ---
-import data from "../../data/musicdev.json";
+import data from "@data/musicdev.json";
 ---
 
 <style>
@@ -29,11 +29,13 @@ import data from "../../data/musicdev.json";
 
 <script>
   import { playlist } from "store.js";
+
+  let BASE_URL = document.body.getAttribute('data-base-url');
   //   import { updateList } from 'utils/all.js';
   function containerInit() {
     // Carga inicial
 
-    const url = `/data/musicdev.json`;
+    const url = `${BASE_URL}/data/musicdev.json`;
     let dataInitial = fetch(url)
       .then((response) => response.json())
       .then((data) => {
@@ -42,7 +44,7 @@ import data from "../../data/musicdev.json";
     // Carga dinámica
     playlist.subscribe(async (list) => {
       try {
-        const response = await fetch(`/data/${list}.json`);
+        const response = await fetch(`${BASE_URL}/data/${list}.json`);
         const data = await response.json();
         updateList(data);
       } catch (error) {

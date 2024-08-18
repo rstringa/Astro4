@@ -3,37 +3,37 @@ import Container from "@components/container.astro";
 import Link from "@components/ui/link.astro";
 import Dropdown from "./dropdown.astro";
 import { Astronav, MenuItems, MenuIcon } from "astro-navbar";
-
+import {BASE_URL} from '../../../astro.config.mjs'
 const menuitems = [
   {
     title: "Features",
     path: "#",
     children: [
-      { title: "Action", path: "/" },
+      { title: "Action", path: `${BASE_URL}/` },
       { title: "Another action", path: "#" },
       { title: "Dropdown Submenu", path: "#" },
-      { title: "404 Page", path: "/404" },
+      { title: "404 Page", path: `${BASE_URL}/404` },
     ],
   },
   {
     title: "Pricing",
-    path: "/pricing",
+    path: `${BASE_URL}/pricing`,
   },
   {
     title: "Gallery",
-    path: "/gallery",
+    path: `${BASE_URL}/gallery`,
   },
   {
     title: "About",
-    path: "/about",
+    path: `${BASE_URL}/about`,
   },
   {
     title: "Blog",
-    path: "/blog",
+    path: `${BASE_URL}/blog`,
   },
   {
     title: "Contact",
-    path: "/contact",
+    path: `${BASE_URL}/contact`,
   },
   // {
   //   title: "Pro Version",
@@ -48,7 +48,7 @@ const menuitems = [
     <Astronav>
       <div class="flex w-full lg:w-auto items-center justify-between">
         <!--data-astro-reload -->
-        <a href="/" class="text-lg" ><span class="font-bold text-slate-800">Astro</span><span
+        <a href=`${BASE_URL}/` class="text-lg" ><span class="font-bold text-slate-800">Astro</span><span
             class="text-slate-500">ship</span
           >
         </a>

@@ -3,20 +3,23 @@ import Layout from "@layouts/Layout.astro";
 import Container from "@components/container.astro";
 import Hero from "@components/hero.astro";
 import data from "../data/gallery-data.json";
+import {BASE_URL} from '../../astro.config.mjs'
+
 ---
 
-<Layout title="Pricing">
+<Layout title="Gallery">
   <Container>
     <Hero title="Gallery website done well with Astro" />
     <div class="main-gallery">
       <ul class="gallery" id="gallery">
         {
-          data.map((item) => (
+          data.map( function(item) {
+            return (
             <li id={`${item.id}`}>
-              <a href={`/gallery/${item.id}`}>
+              <a href={`${BASE_URL}/gallery/${item.id}`}>
                 <img
                   transition:name={`gallery-image-${item.id}`}
-                  src={item.imageURL}
+                  src={'gallery-images/'+ item.imageURL}
                   alt={item.artist}
                 />
                 <figcaption transition:name={`gallery-caption-${item.id}`}>
@@ -24,7 +27,8 @@ import data from "../data/gallery-data.json";
                 </figcaption>
               </a>
             </li>
-          ))
+          )}
+        )
         }
       </ul>
     </div>
