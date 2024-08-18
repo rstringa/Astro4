@@ -26,7 +26,7 @@ const { id } = Astro.params;
                <Icon name="uil:multiply" class="close" />
                 <img
                   transition:name={`gallery-image-${item.id}`}
-                  src={'../gallery-images/'+ item.imageURL}
+                  src={`${BASE_URL}/gallery-images/${item.imageURL}`}
                   alt={item.artist}
                 />
                 <figcaption

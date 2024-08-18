@@ -19,7 +19,7 @@ import {BASE_URL} from '../../astro.config.mjs'
               <a href={`${BASE_URL}/gallery/${item.id}`}>
                 <img
                   transition:name={`gallery-image-${item.id}`}
-                  src={'gallery-images/'+ item.imageURL}
+                  src={`${BASE_URL}/gallery-images/${item.imageURL}`}
                   alt={item.artist}
                 />
                 <figcaption transition:name={`gallery-caption-${item.id}`}>
