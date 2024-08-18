@@ -27,7 +27,7 @@ export default defineConfig({
 
   //   format: "file",
   // },
-  outDir: '.'+ BASE_URL,
+  // outDir: '.'+ BASE_URL,
   base: BASE_URL,
   site: SITE_URL,
   integrations: [tailwind(), mdx(), sitemap(), icon()],
