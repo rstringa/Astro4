@@ -12,7 +12,7 @@ const SCRIPT = process.env.npm_lifecycle_script || "";
 const isBuild = SCRIPT.includes("astro build");
 
 export let SITE_URL = LOCALHOST_URL;
-export let BASE_URL = '';
+export let BASE_URL = '/';
 
 if(isBuild){
   SITE_URL = LIVE_URL;
@@ -28,12 +28,12 @@ export default defineConfig({
   //   format: "file",
   // },
   // outDir: '.'+ BASE_URL,
-  // base: BASE_URL,
-  build: {
-    rollupOptions: {
-      external: ['fsevents']
-    }
-  },
+  base: BASE_URL,
+  // build: {
+  //   rollupOptions: {
+  //     external: ['fsevents']
+  //   }
+  // },
   site: SITE_URL,
   integrations: [tailwind(), mdx(), sitemap(), icon()],
  
