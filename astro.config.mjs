@@ -29,11 +29,11 @@ export default defineConfig({
   // },
   // outDir: '.'+ BASE_URL,
   base: BASE_URL,
-  // build: {
-  //   rollupOptions: {
-  //     external: ['fsevents']
-  //   }
-  // },
+  build: {
+    rollupOptions: {
+      external: ['fsevents']
+    }
+  },
   site: SITE_URL,
   integrations: [tailwind(), mdx(), sitemap(), icon()],
  
