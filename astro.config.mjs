@@ -34,6 +34,6 @@ export default defineConfig({
 
   site: "https://github.com/rstringa/Astro4",
   integrations: [tailwind(), mdx(), sitemap(), icon()],
-  output: "server",
-  adapter: netlify()
+  output: "static",
+  // adapter: netlify()
 });
